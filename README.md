@@ -47,4 +47,25 @@ src/
 │
 ├── assets/
 └── styles.scss
+```
 
+## Local environment
+
+The project uses a local environment file for development credentials.
+
+After cloning the repository, create the local environment file by copying:
+
+`src/environments/environment.local.example.ts`
+
+to:
+
+`src/environments/environment.local.ts`
+
+Then replace the placeholder values in `environment.local.ts` with your own credentials.
+
+> `environment.local.ts` is excluded from Git and must not be committed to the repository.
+
+Once configured, start the application with:
+
+```bash
+npm start

@@ -1,11 +1,15 @@
 <header>
   <nav class="wrap" style="padding:20px 0;">
-    <a class="logo" href="#">YESID CARDONA</a>
-    <div class="nav-links">
-      <a href="#expertise">EXPERTISE</a>
-      <a href="#work">WORK</a>
-      <a href="#stack">STACK</a>
-      <a href="#contact">CONTACT</a>
-    </div>
+    <a class="logo" routerLink="/">YESID CARDONA</a>
+
+    @if (isHome()) {
+      <div class="nav-links">
+        <a href="#expertise">EXPERTISE</a>
+        <a href="#work">WORK</a>
+        <a href="#stack">STACK</a>
+        <a href="#contact">CONTACT</a>
+      </div>
+    }      
+    
   </nav>
 </header>

@@ -18,6 +18,11 @@ steps:
   - script: npm ci
     displayName: 'Install dependencies'
 
+  - script: |
+      sed -i "s|#CONTENTFUL_SPACE_ID#|$(CONTENTFUL_SPACE_ID)|g" src/environments/environment.ts
+      sed -i "s|#CONTENTFUL_DELIVERY_TOKEN#|$(CONTENTFUL_DELIVERY_TOKEN)|g" src/environments/environment.ts
+    displayName: 'Replace Contentful environment variables'
+
   - script: npm run build
     displayName: 'Build Angular application'
 
