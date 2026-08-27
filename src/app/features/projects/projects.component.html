@@ -1,0 +1,58 @@
+<section class="projects-section">
+  <div class="section-head">
+    <h2 class="section-title">Selected Repositories</h2>
+    <span class="section-rule"></span>
+  </div>
+ 
+  <div class="projects-grid" *ngIf="projectList().length; else emptyState">
+    <article class="project-card" *ngFor="let project of projectList(); trackBy: trackByProjectId">
+ 
+      <div class="project-media">
+        <img
+          [src]="project.image?.fields?.file?.url"
+          [alt]="project.name"
+          loading="lazy"
+        >
+      </div>
+ 
+      <div class="project-info">
+        <h3>{{ project.name }}</h3>
+        <div
+            class="project-description"
+            [innerHTML]="getDescription(project.description)"
+            >
+        </div>
+ 
+        <div class="tag-row">
+          <span class="tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+ 
+        <div class="project-links">
+          <a
+            *ngIf="project.liveUrl"
+            [href]="project.liveUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-btn link-demo"
+          >
+            Demo ↗
+          </a>
+          <a
+            *ngIf="project.gitHubUrl"
+            [href]="project.gitHubUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-btn link-git"
+          >
+            Código
+          </a>
+        </div>
+      </div>
+ 
+    </article>
+  </div>
+ 
+  <ng-template #emptyState>
+    <p class="empty-msg">Todavía no hay proyectos para mostrar.</p>
+  </ng-template>
+</section>

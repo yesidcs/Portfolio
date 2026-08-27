@@ -53,34 +53,27 @@
     <div class="section-head" style="margin-bottom:0;">
       <span class="section-title">Selected Repositories</span>
     </div>
-    <a class="view-all" href="#">VER TODOS LOS PROYECTOS →</a>
+    <a class="view-all" routerLink="/projects">VER TODOS LOS PROYECTOS →</a>
   </div>
 
   <div class="projects">
-    <article class="project-card">
+    <article class="project-card" *ngFor="let project of projectList(); trackBy: trackByProjectId">
       <div class="project-media">
-        <img src="/images/project-dashboard.jpg" alt="Dashboard empresarial oscuro con visualización de datos financieros" loading="lazy">
+        <img
+          [src]="project.image?.fields?.file?.url"
+          [alt]="project.name"
+          loading="lazy"
+        >
       </div>
       <div class="project-info">
-        <h4>FinTrack Global API</h4>
-        <p>Ledger bancario en tiempo real procesando 10k transacciones/segundo.</p>
-        <div class="tag-row">
-          <span class="tag">.NET 8</span>
-          <span class="tag">AZURE</span>
+        <h4>{{ project.name }}</h4>
+        <div
+            class="project-description"
+            [innerHTML]="getDescription(project.description)"
+            >
         </div>
-      </div>
-    </article>
-
-    <article class="project-card">
-      <div class="project-media">
-        <img src="/images/project-mobile.jpg" alt="Mockup de aplicación móvil con gráficos de datos sobre fondo oscuro" loading="lazy">
-      </div>
-      <div class="project-info">
-        <h4>SignalStream Client</h4>
-        <p>Herramienta de colaboración basada en Angular con sincronización en tiempo real.</p>
         <div class="tag-row">
-          <span class="tag">ANGULAR</span>
-          <span class="tag">RXJS</span>
+          <span class="tag" *ngFor="let tech of project.technologies">{{ tech }}</span>          
         </div>
       </div>
     </article>
@@ -91,11 +84,11 @@
   <div class="marquee">
     <div class="marquee-group">
       <span>C# / ASP.NET CORE</span>
-      <span>REACT / NEXT.JS</span>
+      <span>REACT / REDUX TOOLKIT</span>
       <span>ANGULAR / RXJS</span>
       <span>SQL SERVER / POSTGRES</span>
       <span>DOCKER / K8S</span>
-      <span>AZURE / AWS</span>
+      <span>AZURE</span>
     </div>
     <div class="marquee-group" aria-hidden="true">
       <span>C# / ASP.NET CORE</span>
