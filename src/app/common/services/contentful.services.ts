@@ -14,6 +14,8 @@ interface ProjectSkeleton extends EntrySkeletonType {
     technologies?: string[];
     gitHubUrl?: string;
     liveUrl?: string;
+    isFeatured?: boolean;
+    featuredOrder?: number;
   };
 }
 
@@ -43,9 +45,10 @@ export class ContentfulService {
     return this.client
       .getEntries<ProjectSkeleton>({
         content_type: 'project',
-        order: ['-sys.createdAt'],
+        'fields.isFeatured': true,
+        order: ['fields.featuredOrder'],
         limit: 2
-      })
+      } as any )
       .then(response =>
         response.items.map(item => this.mapToProjectModel(item.fields))
       );
