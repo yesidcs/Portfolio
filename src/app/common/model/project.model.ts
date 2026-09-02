@@ -8,4 +8,5 @@ export interface ProjectModel {
   technologies?: string[];
   gitHubUrl?: string;
   liveUrl?: string;
+  documentationUrl?: string;
 }

@@ -46,6 +46,15 @@
           >
             Código
           </a>
+          <a
+            *ngIf="project.documentationUrl"
+            [href]="project.documentationUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="link-btn link-git"
+          >
+            Documentación
+          </a>
         </div>
       </div>
  
