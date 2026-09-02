@@ -126,6 +126,7 @@
 
 .project-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-top: auto;
 }
@@ -142,6 +143,10 @@
   transition: all 0.2s;
   flex: 1;
   text-align: center;
+  
+  &:first-child:nth-last-child(3) {
+    flex-basis: 100%;
+  }
 }
 
 .link-demo {

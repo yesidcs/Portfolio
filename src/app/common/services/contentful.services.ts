@@ -14,6 +14,7 @@ interface ProjectSkeleton extends EntrySkeletonType {
     technologies?: string[];
     gitHubUrl?: string;
     liveUrl?: string;
+    documentationUrl?: string;
     isFeatured?: boolean;
     featuredOrder?: number;
   };
@@ -61,7 +62,8 @@ export class ContentfulService {
       image: fields.image,
       technologies: fields.technologies ?? [],
       gitHubUrl: fields.gitHubUrl,
-      liveUrl: fields.liveUrl
+      liveUrl: fields.liveUrl,
+      documentationUrl: fields.documentationUrl
     };
   }
 }
