@@ -48,7 +48,37 @@
   </div>
 </section>
 
-<section class="section" id="work">
+<section class="section" id="experience">
+  <div class="section-head">
+    <span class="section-title">Work Experience</span>
+    <span class="section-rule"></span>
+  </div>
+
+  <div class="timeline">
+
+    <article class="timeline-item" *ngFor="let workExperience of workExperienceList(); trackBy: trackByWorkExperienceId">
+      <div class="timeline-meta">
+        <span class="timeline-date">{{getDateRange(workExperience)}}</span>
+        <span class="timeline-dot"></span>
+      </div>
+      <div class="timeline-content">
+        <h3>{{workExperience.jobTitle}}</h3>
+        <div class="timeline-company">{{workExperience.company}}</div>
+        <div
+            [innerHTML]="getDescription(workExperience.description)"
+            >
+        </div>
+        <p></p>
+        <div class="tag-row">
+          <span class="tag" *ngFor="let tech of workExperience.technologies">{{ tech }}</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section" id="projects">
   <div class="work-head-row">
     <div class="section-head" style="margin-bottom:0;">
       <span class="section-title">Selected Repositories</span>
@@ -73,7 +103,7 @@
             >
         </div>
         <div class="tag-row">
-          <span class="tag" *ngFor="let tech of project.technologies">{{ tech }}</span>          
+          <span class="tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
         </div>
       </div>
     </article>

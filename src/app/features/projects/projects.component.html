@@ -3,6 +3,11 @@
     <h2 class="section-title">Selected Repositories</h2>
     <span class="section-rule"></span>
   </div>
+
+  <p class="section-disclaimer">
+    <span class="disclaimer-icon">i</span>
+    Estos proyectos no corresponden a trabajos reales para empresas o clientes; fueron construidos de forma independiente para demostrar mis capacidades en las tecnologías utilizadas.
+  </p>
  
   <div class="projects-grid" *ngIf="projectList().length; else emptyState">
     <article class="project-card" *ngFor="let project of projectList(); trackBy: trackByProjectId">
